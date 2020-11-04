@@ -1387,6 +1387,8 @@ impl Build {
                     }
                 };
                 cmd.push_cc_arg(crt_flag.into());
+                // TODO: Detect if control-flow-guard is enabled.
+                cmd.push_cc_arg("-guard:cf".into());
 
                 match &opt_level[..] {
                     // Msvc uses /O1 to enable all optimizations that minimize code size.
